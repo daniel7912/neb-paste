@@ -1,6 +1,5 @@
 var NebPay = require('nebpay');
 var nebPay = new NebPay();
-var dappAddress = 'n1xGxDjVdMaP5Mk5FpCoEK9gGwpsNgW7BUL';
 var intervalQuery;
 
 function cbPush(resp) {
@@ -98,6 +97,7 @@ function showAuthorPastes(resp) {
 }
 
 function checkWebExtensionWallet() {
+  console.log('smart contract address', dappAddress);
   if (typeof webExtensionWallet === "undefined") {
     $('#noExtension').removeClass('is-hidden');
   }

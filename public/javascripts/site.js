@@ -37,7 +37,7 @@ function submitPaste() {
 
     var serialNumber = nebPay.call(dappAddress, '0', 'save', callArgs, {
       listener: function() {
-        $('#pasteSuccess .modal-content .box').append('<br/><button id="redirect" class="button is-success" data-key="'+pasteKey+'">View Paste</button>');
+        $('#pasteSuccess .modal-content .box').append('<br/><button id="redirect" class="button is-success" data-key="'+data.key+'">View Paste</button>');
         $('#pasteSuccess').addClass('is-active');
       }
     });

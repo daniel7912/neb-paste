@@ -25,7 +25,7 @@ block content
               textarea#pasteContent.textarea(rows='10', type='text', placeholder='Your paste content')
           .field
             .control
-              button#createNew.button.is-link Create New Paste
+              button#createNew.button.is-success Create New Paste
         .column
           h4.title.is-6 Syntax Highlighting
           .select
@@ -34,7 +34,7 @@ block content
               each type in syntaxTypes
                 option(value=(type.type)) #{type.name}
       hr
-      .message.is-info
+      .message.is-dark
         h4.message-header About Neb Paste
         .message-body
           p

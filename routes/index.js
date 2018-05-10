@@ -4,7 +4,7 @@ var syntaxTypes = require('./includes/syntax-types.json');
 var dappAddress;
 
 var env = process.env.NODE_ENV || 'dev';
-if (env === 'dev') {
+if (env === 'dev' || env === 'development') {
   dappAddress = 'n1xGxDjVdMaP5Mk5FpCoEK9gGwpsNgW7BUL';
 } else {
   dappAddress = 'n1qiDxiZDFRZFG2ezppoP1paniwUz4NGyAB';

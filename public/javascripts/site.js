@@ -2,10 +2,6 @@ var NebPay = require('nebpay');
 var nebPay = new NebPay();
 var intervalQuery;
 
-function cbPush(resp) {
-  // console.log('response of push: ' + JSON.stringify(resp));
-}
-
 function funcIntervalQuery(serialNumber, pasteKey) {
   nebPay.queryPayInfo(serialNumber)
     .then(function (resp) {
@@ -13,8 +9,6 @@ function funcIntervalQuery(serialNumber, pasteKey) {
         var respObject = JSON.parse(resp)
         if(respObject.code === 0){
             clearInterval(intervalQuery)
-            $('#pasteSuccess .modal-content .box').append('<br/><button id="redirect" class="button is-success" data-key="'+pasteKey+'">View Paste</button>');
-            $('#pasteSuccess').addClass('is-active');
         }
     })
     .catch(function (err) {
@@ -42,7 +36,10 @@ function submitPaste() {
     var callArgs = "[\"" + data.key + "\",\"" + data.pasteTitle + "\",\"" + data.pasteContent + "\",\"" + data.syntax + "\",\"" + data.date + "\"]"
 
     var serialNumber = nebPay.call(dappAddress, '0', 'save', callArgs, {
-      listener: cbPush
+      listener: function() {
+        $('#pasteSuccess .modal-content .box').append('<br/><button id="redirect" class="button is-success" data-key="'+pasteKey+'">View Paste</button>');
+        $('#pasteSuccess').addClass('is-active');
+      }
     });
 
     intervalQuery = setInterval(function () {

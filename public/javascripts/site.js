@@ -23,16 +23,6 @@ function funcIntervalQuery(serialNumber, pasteKey) {
     });
 }
 
-function loadSyntaxOptions() {
-  $.getJSON( "assets/syntax-types.json", function(data) {
-    var options = [];
-    $.each(data, function(key, val) {
-      options.push( "<option value='" + val.type + "'>" + val.name + "</option>" );
-    });
-    $('select#syntaxTypes').append(options);
-  });
-}
-
 function generateRandomKey() {
   return Math.random().toString(36).substr(2, 12);
 }

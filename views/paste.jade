@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+  section.section
+    .container
+      include ./includes/no-extension.jade
+
+      h2.title.is-5 Paste Content
+      p#loading Paste is loading. Please wait.
+      p#loadError.is-hidden
+        | Paste could not be found. Please wait until your paste transaction has completed successfully and then refresh this page.
+      #prism-container
+        // Prism will be inserted here
+      #raw-container
+        // Raw paste will be inserted here
+
+            
+  script.
+    $(document).ready(function() {
+      checkWebExtensionWallet();
+      var key = '#{key}';
+      loadPaste(key);
+    });

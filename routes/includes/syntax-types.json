@@ -1,0 +1,22 @@
+[
+  { "name": "Bash", "type": "bash" },
+  { "name": "C", "type": "c" },
+  { "name": "C#", "type": "csharp" },
+  { "name": "C++", "type": "cpp" },
+  { "name": "CSS", "type": "css" },
+  { "name": "HTML", "type": "markup" },
+  { "name": "Java", "type": "java" },
+  { "name": "Javascript", "type": "javascript" },
+  { "name": "JSON", "type": "json" },
+  { "name": "Lua", "type": "lua" },
+  { "name": "Markup", "type": "markup" },
+  { "name": "Objective C", "type": "objectivec" },
+  { "name": "Perl", "type": "perl" },
+  { "name": "PHP", "type": "php" },
+  { "name": "Python", "type": "python" },
+  { "name": "Ruby", "type": "ruby" },
+  { "name": "SASS", "type": "sass" },
+  { "name": "SCSS", "type": "scss" },
+  { "name": "Swift", "type": "swift" },
+  { "name": "TypeScript", "type": "typescript" }
+]

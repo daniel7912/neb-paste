@@ -1,0 +1,66 @@
+extends layout
+
+block content
+
+  section.section
+    .container
+      include ./includes/no-extension.jade
+
+      #pasteSuccess.modal
+        .modal-background
+        .modal-content
+          .box
+            p
+              | Paste transaction completed successfully.
+              br
+              | Click the button below to view your paste.
+      h2.title.is-5 New Paste
+      .columns
+        .column.is-two-thirds
+          .field
+            .control
+              input#pasteTitle.input(type='text', placeholder='Your paste title')
+          .field
+            .control
+              textarea#pasteContent.textarea(rows='10', type='text', placeholder='Your paste content')
+          .field
+            .control
+              button#createNew.button.is-link Create New Paste
+        .column
+          h4.title.is-6 Syntax Highlighting
+          .select
+            select#syntaxTypes
+              option(value='') None
+              each type in syntaxTypes
+                option(value=(type.type)) #{type.name}
+      hr
+      .message.is-info
+        h4.message-header About Neb Paste
+        .message-body
+          p
+            | Neb Paste is a simple dApp which allows you to store copied & pasted information on the 
+            a(href='https://nebulas.io/', target='_blank') Nebulas
+            |  network.
+          p
+            | To be able to use this app, you must have the 
+            a(target='_blank', href='https://github.com/ChengOrangeJu/WebExtensionWallet') WebExtensionWallet
+            |  installed and have your wallet file loaded.
+          p
+            | This app 
+            strong does not
+            |  transfer NAS in any way and only uses your wallet address to store paste submissions, allowing for quick access to your existing pastes.
+            
+  script.
+    $(document).ready(function() {
+      checkWebExtensionWallet();
+      loadSyntaxOptions();
+      // When user clicks the 'Create new paste' button
+      $('#createNew').on('click', function() {
+        submitPaste();
+      });
+      // When user clicks the 'View Paste' button
+      $('body').on('click', '#redirect', function() {
+        var key = $(this).data('key');
+        window.location.href = '/'+key;
+      });
+    });

@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js")
+    script(defer src="https://use.fontawesome.com/releases/v5.0.12/js/all.js" integrity="sha384-Voup2lBiiyZYkRto2XWqbzxHXwzcm4A5RfdfG6466bu5LqjwwrjXCMBQBLMWh7qR" crossorigin="anonymous")
+    script(src="/javascripts/prism/prism.js")
+    script(src="/javascripts/nebPay.js")
+    script(src="/javascripts/site.js")
+  body
+    header
+      nav.navbar.is-info(role='navigation', aria-label='main navigation')
+        .navbar-brand
+          a.navbar-item(href='/') Neb Paste
+        .navbar-menu
+          .navbar-end
+            .navbar-item
+              .field.is-grouped
+                p.control
+                  a.button(href='/')
+                    span.icon
+                      i.fas.fa-plus(aria-hidden='true')
+                    span New Paste
+                p.control
+                  a.button(href='/your-pastes')
+                    span.icon
+                      i.fas.fa-clipboard-list(aria-hidden='true')
+                    span Your Pastes
+        
+    block content
